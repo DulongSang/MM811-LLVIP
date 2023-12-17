@@ -1,4 +1,4 @@
-# LLVIP: A Visible-infrared Paired Dataset for Low-light Vision
+# MM811: Pedestrian Detection For Low-light Vision
 
 # Acknowledgements
 This project is based on the LLVIP paper:
