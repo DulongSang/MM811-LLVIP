@@ -1,3 +1,17 @@
+# LLVIP: A Visible-infrared Paired Dataset for Low-light Vision
+
+# Acknowledgements
+This project is based on the LLVIP paper:
+- arXiv: https://arxiv.org/abs/2108.10831
+- github: https://github.com/bupt-ai-cz/LLVIP
+
+Original authors: Xinyu Jia, Chuang Zhu*, Minzhen Li, Wenqi Tang, Shengjie Liu, Wenli Zhou
+
+This is a course project of MM811 Fall 2023 at the University of Alberta.
+
+Authors: [Dulong Sang](dulong@ualberta.ca), [Mingwei Lu](mlu1@ualberta.ca), [Haoyu Qiu](hqiu3@ualberta.ca)
+
+
 # Install Dependencies
 
 Required Python version: 3.9 or above
