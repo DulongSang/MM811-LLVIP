@@ -1,0 +1,11 @@
+# reference: https://github.com/bupt-ai-cz/LLVIP/blob/main/yolov5/data/LLVIP.yaml
+# YOLOv5 🚀 by Ultralytics, GPL-3.0 license
+
+path: ./LLVIP  # dataset root dir
+train: ./images/train  # train images
+val: ./images/train  # val images
+test:  # test images (optional)
+
+# Classes
+nc: 1  # number of classes
+names: ['person']  # class names, only detection pedestrian (person)
