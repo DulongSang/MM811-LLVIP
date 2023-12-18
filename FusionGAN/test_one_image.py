@@ -16,7 +16,7 @@ def imread(path, is_grayscale=True):
   Default value is gray-scale, and image is read by YCbCr format as the paper said.
   """
   if is_grayscale:
-    #flatten=True 以灰度图的形式读取 
+    #flatten=True read as Greyscale 
     #return scipy.misc.imread(path, flatten=True, mode='YCbCr').astype(np.float)
     image=scipy.misc.imread(path, flatten=True, mode='YCbCr').astype(np.float)
     return scipy.misc.imresize(image,0.5)
@@ -103,7 +103,7 @@ while(num_epoch==9):
         #可见光图像patch
         images_vi = tf.placeholder(tf.float32, [1,None,None,None], name='images_vi') 
         #self.labels_vi_gradient=gradient(self.labels_vi)
-    #将红外和可见光图像在通道方向连起来，第一通道是红外图像，第二通道是可见光图像
+    # concatenate visible image and infrared image
     with tf.name_scope('input'):
         #resize_ir=tf.image.resize_images(images_ir, (512, 512), method=2)
         input_image=tf.concat([images_ir,images_vi],axis=-1)
