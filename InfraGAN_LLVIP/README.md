@@ -16,7 +16,7 @@ pip install dominate
 ```
 
 
-### InfraGAN train/test on VEDAI dataset
+### InfraGAN train/test on LLVIP dataset
 - Download the LLVIP dataset from:
 
 ```bash
@@ -25,7 +25,7 @@ https://bupt-ai-cz.github.io/LLVIP/
 - You should name the dataset folder LLVIP and put it into InfaGAN-LLVIP folder, it should be like:
 
 ```
-+InfraGAN-main
++InfraGAN-LLVIP
 
 +----LLVIP
 
@@ -75,13 +75,31 @@ https://bupt-ai-cz.github.io/LLVIP/
 ...
 
 
-
 ```
+
 - Run visdom to view the training process, then click the link http://localhost:8097 with explorer
 ```
 python -m visdom.server
 
 ```
+
+- Download the pretrained model from the link https://drive.google.com/file/d/1eeuiUZcxJTRPuMP5wKP5AzhFf6o8dC73/view?usp=drive_link, 
+unzip the file, and put the checkpoints folder in the InfaGAN-LLVIP folder, it should be like this:
+```
++InfraGAN-LLVIP
+
++----checkpoints
+
++---------infragan_LLVIP
++--------------web
++--------------history.pth
++--------------latest_net_D.pth
++--------------latest_net_G.pth
++--------------loss_log.txt
++--------------opt.txt
+
+```
+
 
 
 - Train the Model with LLVIP dataset:
