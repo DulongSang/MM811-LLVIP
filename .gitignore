@@ -11,3 +11,5 @@ runs/
 
 # logs
 *.log
+
+.DS_Store
