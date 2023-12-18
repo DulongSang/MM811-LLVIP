@@ -159,13 +159,21 @@ root
 ## Pre-process LLVIP Annotations
 
 ```bash
-python3 utils/xml2yolov8_txt.py --xml-anno-dir datasets/LLVIP/Annotations --images-dir datasets/LLVIP/images/train
+python utils/xml2yolov8_txt.py --xml-anno-dir datasets/LLVIP/Annotations --images-dir datasets/LLVIP/images/train
 ```
 
-## Run YOLOv8 evaluation
+## Train / Fine-tune YOLOv8 Weights
 
 ```bash
-python3 yolov8/val.py --data="LLVIP.yaml"
+python yolov8/train.py -h # check available options
+```
+
+You can check the available options for training using the above command, and choose the appropriate training settings.
+
+## Run YOLOv8 Evaluation
+
+```bash
+python yolov8/val.py --data="LLVIP.yaml"
 ```
 
 # InfraGAN
@@ -174,7 +182,7 @@ python3 yolov8/val.py --data="LLVIP.yaml"
 ### Installation
 - Install PyTorch and dependencies from http://pytorch.org
 ```bash
-pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ```
 - Install required python libraries [visdom](https://github.com/facebookresearch/visdom) and [dominate](https://github.com/Knio/dominate).
 ```bash
