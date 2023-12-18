@@ -68,7 +68,7 @@ def make_thermal_dataset_LLVIP(path, mode):
         path_vi_img = os.path.join(path_vi, fname)
         #print(path_vi_img)
         annotation_file = os.path.join(path, 'Annotations', fcode + '.xml')
-        images.append({'A': path_vi_img, 'B': path_ir_img, "annotation_file": annotation_file})
+        images.append({'A': path_vi_img, 'B': path_ir_img, "annotation_file": annotation_file, "img_name": fcode})
 
     # if mode == 'train':
     #     pass
@@ -82,6 +82,7 @@ def make_thermal_dataset_LLVIP(path, mode):
 class ThermalDataset(BaseDataset):
     def initialize(self, opt, mode='train'):
         print('ThermalDataset')
+        mode = opt.phase
         self.opt = opt
         self.root = opt.dataroot
         self.dir_AB = os.path.join(opt.dataroot, opt.phase)
@@ -98,6 +99,7 @@ class ThermalDataset(BaseDataset):
         A_path = self.AB_paths[index]['A']
         B_path = self.AB_paths[index]['B']
         ann_path = self.AB_paths[index]['annotation_file']
+        img_name = self.AB_paths[index]['img_name']
         A = Image.open(A_path).convert('RGB')
         #A = A.resize((self.opt.loadSize, self.opt.loadSize), Image.BICUBIC)
         A = transforms.ToTensor()(A.copy())
@@ -134,7 +136,7 @@ class ThermalDataset(BaseDataset):
             A = tmp.unsqueeze(0)
 
         return {'A': A, 'B': B,
-                'A_paths': A_path, 'B_paths': B_path, "annotation_file": ann_path}
+                'A_paths': A_path, 'B_paths': B_path, "annotation_file": ann_path, 'img_name':img_name}
 
     def __len__(self):
         return len(self.AB_paths)

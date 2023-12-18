@@ -42,7 +42,7 @@ opt.no_flip = True  # no flip
 #     shuffle=False,
 #     num_workers=int(opt.nThreads))
 
-
+mode = 'test'
 data_loader = CreateDataLoader(opt)
 dataset = data_loader.load_data()
 model = create_model(opt)
@@ -56,11 +56,13 @@ webpage = html.HTML(web_dir, 'Experiment = %s, Phase = %s, Epoch = %s' % (opt.na
 for i, data in enumerate(dataset):
     if i >= opt.how_many:
         break
+    number = int(data["img_name"][0])
+
     model.set_input(data)
     model.test()
     visuals = model.get_current_visuals()
     img_path = opt.save_image_path
-    print('%04d: process image... %s' % (i, img_path))
-    visualizer.save_images(webpage, visuals, img_path, i, aspect_ratio=opt.aspect_ratio)
+    print('%04d: process image... %s' % (number, img_path))
+    visualizer.save_images(webpage, visuals, img_path, number, aspect_ratio=opt.aspect_ratio)
 
 webpage.save()

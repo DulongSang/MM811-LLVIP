@@ -12,6 +12,7 @@ import warnings
 
 if __name__ == '__main__':
     #warnings.filterwarnings("ignore", category=UserWarning)
+    mode = 'train'
     opt = TrainOptions().parse()
     data_loader = CreateDataLoader(opt)
     dataset = data_loader.load_data()
